@@ -11,6 +11,10 @@ github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/eissana/gograd v0.0.0-20240423063002-8df40bed3508 h1:WtIS7EHVUma/JatPCJsj9xifhcHmzgCQdkvq5W8v1QM=
 github.com/eissana/gograd v0.0.0-20240423063002-8df40bed3508/go.mod h1:EvLOrl4F5Ia9OaVs6bWNoLIXjmv80qMyuFLFeZaVU88=
+github.com/eissana/gograd v0.0.0-20240427210446-f48b8e14972f h1:CHKKVsidX0GA5wckD83QgGxK7GJrSCdIPoCAi60zRW0=
+github.com/eissana/gograd v0.0.0-20240427210446-f48b8e14972f/go.mod h1:EvLOrl4F5Ia9OaVs6bWNoLIXjmv80qMyuFLFeZaVU88=
+github.com/eissana/gograd v0.0.1 h1:4/BB7PIW3ZRe+9E+TfV0B3eBr4JDvhywgfomZYrYoX8=
+github.com/eissana/gograd v0.0.1/go.mod h1:EvLOrl4F5Ia9OaVs6bWNoLIXjmv80qMyuFLFeZaVU88=
 github.com/fogleman/gg v1.2.1-0.20190220221249-0403632d5b90/go.mod h1:R/bRT+9gY/C5z7JzPU0zXsXHKM4/ayA+zqcVNZzPa1k=
 github.com/fogleman/gg v1.3.0 h1:/7zJX8F6AaYQc57WQCyN9cAIz+4bCJGO9B+dyW29am8=
 github.com/fogleman/gg v1.3.0/go.mod h1:R/bRT+9gY/C5z7JzPU0zXsXHKM4/ayA+zqcVNZzPa1k=
