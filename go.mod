@@ -3,7 +3,7 @@ module github.com/eissana/gogen
 go 1.22.2
 
 require (
-	github.com/eissana/gograd v0.0.1
+	github.com/eissana/gograd v0.0.3
 	gonum.org/v1/plot v0.9.0
 )
 

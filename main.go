@@ -9,12 +9,35 @@ import (
 	"gonum.org/v1/plot/vg"
 )
 
+const (
+	epochs = 100
+)
+
 func main() {
-	bigrams := gen.GetBigrams(gen.ReadNames("data/names.txt"))
-	w := gen.GetModelParams()
-	epochs, batchSize, learningRate := 80, 100, 50.0
-	losses := gen.Train(w, bigrams, epochs, batchSize, learningRate)
-	fmt.Printf("final loss: %f\n", losses[len(losses)-1])
+	layerParams := []nn.LayerParam{
+		// Output layer with 28 neuron.
+		// Normalized values of output layer (softmax) represents probability scores.
+		nn.MakeLayerParam(gen.NumChars, nn.Exp),
+	}
+	// Creates a neural network with input size of 28.
+	model := gen.MakeNeuralNetwork(layerParams)
+
+	// Reduce batchSize to speed up the process.
+	batchSize := epochs
+
+	inputs, labels := gen.GetRecords(gen.ReadNames("data/names.txt"), batchSize)
+	trainingParam := nn.TrainingParam{
+		Epochs:                  100,
+		Regularization:          0.0, // no regularization
+		ClassificationThreshold: 0.5,
+		LearningRate:            0.9,
+	}
+	// Trains the model and returns losses and scores.
+	losses, scores := model.Train(inputs, labels, trainingParam)
+
+	// Computes the accuracy of the model.
+	accuracy := nn.Accuracy(scores, labels, trainingParam)
+	fmt.Printf("Loss: %3.4f, Accuracy: %3.0f%%\n", losses[len(losses)-1], 100*accuracy)
 
 	plotter := nn.Plotter{
 		Width:  6 * vg.Inch,
