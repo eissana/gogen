@@ -10,27 +10,27 @@ import (
 )
 
 const (
-	epochs = 100
+	epochs = 10
 )
 
 func main() {
 	layerParams := []nn.LayerParam{
 		// Output layer with 28 neuron.
-		// Normalized values of output layer (softmax) represents probability scores.
-		nn.MakeLayerParam(gen.NumChars, nn.Exp),
+		// Linear output layer. Will apply softmax later on output.
+		nn.MakeLayerParam(gen.NumChars, nil),
 	}
 	// Creates a neural network with input size of 28.
-	model := gen.MakeNeuralNetwork(layerParams)
+	model := nn.MakeNeuralNetwork(gen.NumChars, layerParams)
 
 	// Reduce batchSize to speed up the process.
-	batchSize := epochs
+	batchSize := 100
 
 	inputs, labels := gen.GetRecords(gen.ReadNames("data/names.txt"), batchSize)
 	trainingParam := nn.TrainingParam{
-		Epochs:                  100,
+		Epochs:                  epochs,
 		Regularization:          0.0, // no regularization
 		ClassificationThreshold: 0.5,
-		LearningRate:            0.9,
+		LearningRate:            5,
 	}
 	// Trains the model and returns losses and scores.
 	losses, scores := model.Train(inputs, labels, trainingParam)

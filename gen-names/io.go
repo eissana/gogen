@@ -75,3 +75,17 @@ func getBatchIndices(batchSize, size int, seed int64) []int {
 	r := rand.New(rand.NewSource(seed))
 	return r.Perm(size)[:batchSize]
 }
+
+func atoi(c byte) int {
+	switch {
+	case c == begin:
+		return 0
+	case c == end:
+		return NumChars - 1
+	case c >= 'a' && c <= 'z':
+		return int(c - 'a')
+	default:
+		break
+	}
+	return -1
+}
